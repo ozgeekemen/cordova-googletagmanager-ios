@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-googletagmanager-ios",
-  "version": "0.1-dev",
+  "version": "0.1",
   "description": "Cordova Device GoogleTagManager for iOS",
   "cordova": {
     "id": "cordova-plugin-device",
