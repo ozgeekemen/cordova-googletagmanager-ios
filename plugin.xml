@@ -21,9 +21,9 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="cordova-plugin-googletagmanager-ios"
     version="0.0.1">
-    <name>GoogleTagManagerOnIos</name>
-    <description>Cordova GoogleTagmanager on iOS Plugin</description>
-    <license>Apache 2.0</license>
+    <name>GoogleTagManagerForCordovaIos</name>
+    <description>Cordova GoogleTagmanager for iOS Plugin</description>
+    <license>MIT</license>
     <keywords>cordova, gtm, google tag manager</keywords>
     <!-- 
 	<repo>https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</repo>
@@ -35,6 +35,8 @@
 	-->
     <!-- ios -->
     <platform name="ios">
+        <info>Don't forget to add your Google Tag Manager config file (`GTM-xxxxxxx.json`) to the root of your project.</info>
+
         <config-file target="config.xml" parent="/*">
             <feature name="GoogleTagManagerForIos">
                 <!-- <param name="ios-package" value="gtmIos"/> -->
@@ -42,6 +44,10 @@
         </config-file>
 		
 		<framework src="GoogleTagManager" type="podspec" spec="~> 6.0" /> 
+
+        <preference name="CONFIG_FILE_NAME" />
+        <hook type="after_prepare" src="hooks/copyGtmContainerConfig.js" />
+        <hook type="after_prepare" src="hooks/addGtmContainerFolderToTarget.js" />
     </platform>
 
 </plugin>

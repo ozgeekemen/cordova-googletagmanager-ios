@@ -1,21 +1,21 @@
 {
   "name": "cordova-plugin-googletagmanager-ios",
   "version": "0.0.1",
-  "description": "Cordova Device GoogleTagManager for iOS",
+  "description": "Cordova plugin for adding GoogleTagManager to cordova-ios projects",
   "cordova": {
-    "id": "cordova-plugin-device",
+    "id": "cordova-plugin-googletagmanager-ios",
     "platforms": [
       "ios"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kirikkale/cordova-googletagmanaer-ios.git"  
+    "url": "https://github.com/kirikkale/cordova-googletagmanaer-ios.git"
   },
   "keywords": [
     "cordova",
     "google-tag-manager",
-	"gtm",
+    "gtm",
     "ecosystem:cordova",
     "cordova-ios"
   ],
@@ -23,22 +23,11 @@
     "test": "npm run eslint",
     "eslint": "node node_modules/eslint/bin/eslint www && node node_modules/eslint/bin/eslint src && node node_modules/eslint/bin/eslint tests"
   },
-  "author": "Apache Software Foundation",
-  "license": "Apache-2.0",
-  "engines": {
-    "cordovaDependencies": {
-      "2.0.0": {
-        "cordova": ">100"
-      }
-    }
-  },
-  "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-semistandard": "^11.0.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-node": "^5.0.0",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+  "author": "Enes Yalcin",
+  "license": "MIT",
+  "dependencies": {
+    "file-system": "^2.2.2",
+    "path": "^0.12.7",
+    "xcode": "git+https://github.com/apache/cordova-node-xcode.git"
   }
 }
