@@ -4,14 +4,14 @@ A plugin for adding Google Tag Manager to cordova-ios projects (including adding
 
 ## How to install the plugin
 
-- run `cordova plugin add https://github.com/kirikkale/cordova-googletagmanaer-ios.git --variable CONFIG_FILE_NAME="<name of your GTM json config file>"`
+- run `cordova plugin add https://github.com/enesyalcin/cordova-googletagmanager-ios.git --variable CONFIG_FILE_NAME="<name of your GTM json config file>" --save`
 
 ## Change the name of your config file later
 
 - open `config.xml` and look for the following part:
 
 ```xml
-<plugin name="cordova-plugin-googletagmanager-ios" spec="https://github.com/kirikkale/cordova-googletagmanaer-ios.git">
+<plugin name="cordova-plugin-googletagmanager-ios" spec="https://github.com/enesyalcin/cordova-googletagmanager-ios.git">
   <variable name="CONFIG_FILE_NAME" value="<GTM-xxxxxxx.json>" />
 </plugin>
 ```
