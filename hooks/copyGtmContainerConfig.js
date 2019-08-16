@@ -31,25 +31,9 @@ function log(logString, type) {
   console.log(prefix + logString + postfix);
 }
 
-function getPreferenceValue(config, name) {
-  var value = config.match(
-    new RegExp('name="' + name + '" value="(.*?)"', 'i')
-  );
-  if (value && value[1]) {
-    return value[1];
-  } else {
-    return null;
-  }
-}
-
 function getCordovaParameter(variableName, contents) {
-  var variable;
-  if (process.argv.join('|').indexOf(variableName + '=') > -1) {
-    var re = new RegExp(variableName + '=(.*?)(||$))', 'g');
-    variable = process.argv.join('|').match(re)[1];
-  } else {
-    variable = getPreferenceValue(contents, variableName);
-  }
+  var gtmPlugin = contents && contents.cordova && contents.cordova.plugins && contents.cordova.plugins['cordova-plugin-googletagmanager-ios']
+  var variable = gtmPlugin && gtmPlugin[variableName]
   return variable;
 }
 
@@ -60,12 +44,12 @@ log(
 );
 
 module.exports = function(context) {
-  var Q = context.requireCordovaModule('q');
+  var Q = require('q');
   var deferral = new Q.defer();
-  var configXmlContents = fs.readFileSync(
-    path.join(context.opts.projectRoot, 'config.xml'),
+  var configXmlContents = JSON.parse(fs.readFileSync(
+    path.join(context.opts.projectRoot, 'package.json'),
     'utf-8'
-  );
+  ));
   // get the name of the container config file from variable or the config file
   var CONFIG_FILE_NAME = getCordovaParameter(
     'CONFIG_FILE_NAME',
