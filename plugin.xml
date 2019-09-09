@@ -47,8 +47,6 @@
             </pods>
         </podspec>
 
-        <resource-file src="ios/GoogleTagManager.framework/Resources/TagManagerResources.bundle"/>
-
         <hook type="after_prepare" src="hooks/copyGtmContainerConfig.js"/>
         <hook type="after_prepare" src="hooks/addGtmContainerFolderToTarget.js"/>
     </platform>
